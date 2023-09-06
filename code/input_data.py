@@ -8,13 +8,13 @@ def read_data(num):
         n = int(n)
         m = int(m)
 
-        time = np.zeros((n,m), dtype=np.int)
+        time = np.zeros((n,m), dtype=int)
         for i in range(n):
             line = f.readline().split()
             line = [int(x) for x in line]
             time[i] = line
 
-        order = np.zeros((n,m), dtype=np.int)
+        order = np.zeros((n,m), dtype=int)
         for i in range(n):
             line = f.readline().split()
             line = [int(x) for x in line]
