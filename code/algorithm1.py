@@ -25,16 +25,15 @@ def algorithm1(jobs, machines, time, order):
                                 j_avl[m][j] = 1
 
         for m in range(machines):
-            t_max = 0
+            t_max = 10000000 # Cambiar a un numero max
             j_max = 0
             if m_avl[m] == 1:
                 if np.any(j_avl[m]):
                     for j in range(jobs):
                         if j_avl[m][j] == 1:
-                            if time[j][j_info[j][0]] > t_max:
+                            if time[j][j_info[j][0]] < t_max:
                                 t_max = time[j][j_info[j][0]]
                                 j_max = j
-                    # m_info[m] = max(t,m_info[m]+t_max)
                     m_info[m] = t + t_max
                     j_info[j_max][0] += 1
                     j_info[j_max][1] = max(j_info[j_max][3], m_info[m])
@@ -49,7 +48,7 @@ def algorithm1(jobs, machines, time, order):
                     if j[3] > t_prev:
                         t = j[3]
     Z = max(m_info)
-    print("Z=",Z)
+    return Z
 
 
 def check(j_info,machines):
@@ -63,4 +62,5 @@ from input_data import read_data
 
 for instance in range(16,17):
     n,m,time,order = read_data(instance)
-    algorithm1(n,m,time,order)
+    total = algorithm1(n,m,time,order)
+    print(total)
