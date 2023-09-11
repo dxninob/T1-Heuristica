@@ -25,6 +25,6 @@ for instance in range(1,17):
     t = t2 - t1
     write_data(wb1, instance, sol, Z, t)
 
-wb0.save("JSSP_Daniela_Nino_1.xls")
-wb1.save("JSSP_Daniela_Nino_2.xls")
+wb0.save("JSSP_Daniela_Nino_constructivo.xls")
+wb1.save("JSSP_Daniela_Nino_ruido.xls")
 # wb2.save("JSSP_Daniela_Nino_3.xls")
