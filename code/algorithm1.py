@@ -40,10 +40,10 @@ def algorithm1(jobs, machines, timep, order):
 
         t_prev = t
         t = cota
-        for j in j_info:
-            if j[3] < t:
-                if j[3] > t_prev:
-                    t = j[3]
+        for m in range(len(m_info)):
+            if m_info[m] < t:
+                if m_info[m] > t_prev:
+                    t = m_info[m]
 
     Z = max(m_info)
     return (sol,Z)
