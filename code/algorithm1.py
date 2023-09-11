@@ -6,19 +6,18 @@ def algorithm1(jobs, machines, timep, order):
     m_info = np.zeros(machines, dtype=int)
     m_avl = np.zeros(machines, dtype=int)
     m_pos = np.zeros(machines, dtype=int)
-    j_avl = np.zeros((machines,jobs), dtype=int)
     sol = np.zeros((machines,jobs), dtype=int)
     t = 0
     cota = np.sum(timep)
 
     while check(j_info, machines):
-        m_avl = np.zeros(machines, dtype=int)
-        j_avl = np.zeros((machines,jobs), dtype=int)
-
         for m in range(machines):
             if m_info[m] <= t:
                 m_avl[m] = 1
+            else:
+                m_avl[m] = 0
 
+        j_avl = np.zeros((machines,jobs), dtype=int)
         for m in range(machines):
             if m_avl[m] == 1:
                 for j in range(jobs):
