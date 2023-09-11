@@ -27,15 +27,9 @@ def algorithm1(jobs, machines, timep, order):
                                 j_avl[m][j] = 1
 
         for m in range(machines):
-            t_max = cota
-            j_max = 0
             if m_avl[m] == 1:
                 if np.any(j_avl[m]):
-                    for j in range(jobs):
-                        if j_avl[m][j] == 1:
-                            if timep[j][j_info[j][0]] < t_max:
-                                t_max = timep[j][j_info[j][0]]
-                                j_max = j
+                    t_max,j_max = select_job(m,jobs,j_avl,j_info,timep,cota)
                     sol[m][m_pos[m]] = j_max+1
                     m_info[m] = t + t_max
                     m_pos[m] += 1
@@ -51,6 +45,7 @@ def algorithm1(jobs, machines, timep, order):
                 if j[3] < t:
                     if j[3] > t_prev:
                         t = j[3]
+
     Z = max(m_info)
     return (sol,Z)
 
@@ -60,3 +55,14 @@ def check(j_info,machines):
         if j[0] < machines:
             return True
     return False
+
+
+def select_job(m,jobs,j_avl,j_info,timep,cota):
+    t_max = cota
+    j_max = 0
+    for j in range(jobs):
+        if j_avl[m][j] == 1:
+            if timep[j][j_info[j][0]] < t_max:
+                t_max = timep[j][j_info[j][0]]
+                j_max = j
+    return (t_max,j_max)
