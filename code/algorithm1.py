@@ -5,7 +5,9 @@ def algorithm1(jobs, machines, time, order):
     j_info = np.zeros((jobs,4), dtype=int)
     m_info = np.zeros(machines, dtype=int)
     m_avl = np.zeros(machines, dtype=int)
+    m_pos = np.zeros(machines, dtype=int)
     j_avl = np.zeros((machines,jobs), dtype=int)
+    sol = np.zeros((machines,jobs), dtype=int)
     t = 0
 
     while check(j_info, machines):
@@ -34,7 +36,9 @@ def algorithm1(jobs, machines, time, order):
                             if time[j][j_info[j][0]] < t_max:
                                 t_max = time[j][j_info[j][0]]
                                 j_max = j
+                    sol[m][m_pos[m]] = j_max+1
                     m_info[m] = t + t_max
+                    m_pos[m] += 1
                     j_info[j_max][0] += 1
                     j_info[j_max][1] = max(j_info[j_max][3], m_info[m])
                     j_info[j_max][2] = t
@@ -48,7 +52,7 @@ def algorithm1(jobs, machines, time, order):
                     if j[3] > t_prev:
                         t = j[3]
     Z = max(m_info)
-    return Z
+    return (sol,Z)
 
 
 def check(j_info,machines):
@@ -56,11 +60,3 @@ def check(j_info,machines):
         if j[0] < machines:
             return True
     return False
-    
-
-from input_data import read_data
-
-for instance in range(16,17):
-    n,m,time,order = read_data(instance)
-    total = algorithm1(n,m,time,order)
-    print(total)
