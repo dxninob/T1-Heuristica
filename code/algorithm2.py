@@ -45,10 +45,9 @@ def algorithm2(jobs, machines, timep, order, r):
         t_prev = t
         t = cota
         for j in j_info:
-            if j[3] != 0:
-                if j[3] < t:
-                    if j[3] > t_prev:
-                        t = j[3]
+            if j[3] < t:
+                if j[3] > t_prev:
+                    t = j[3]
 
     Z = max(m_info)
     return (sol,Z)
