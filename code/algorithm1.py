@@ -9,6 +9,7 @@ def algorithm1(jobs, machines, timep, order):
     j_avl = np.zeros((machines,jobs), dtype=int)
     sol = np.zeros((machines,jobs), dtype=int)
     t = 0
+    cota = np.sum(timep)
 
     while check(j_info, machines):
         m_avl = np.zeros(machines, dtype=int)
@@ -27,7 +28,7 @@ def algorithm1(jobs, machines, timep, order):
                                 j_avl[m][j] = 1
 
         for m in range(machines):
-            t_max = 10000000 # Cambiar a un numero max
+            t_max = cota
             j_max = 0
             if m_avl[m] == 1:
                 if np.any(j_avl[m]):
@@ -45,7 +46,7 @@ def algorithm1(jobs, machines, timep, order):
                     j_info[j_max][3] = t + t_max
 
         t_prev = t
-        t = 1000000000000 # Cambiar por una cota mayor
+        t = cota
         for j in j_info:
             if j[3] != 0:
                 if j[3] < t:
