@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def algorithm1(jobs, machines, time, order):
+def algorithm1(jobs, machines, timep, order):
     j_info = np.zeros((jobs,4), dtype=int)
     m_info = np.zeros(machines, dtype=int)
     m_avl = np.zeros(machines, dtype=int)
@@ -33,8 +33,8 @@ def algorithm1(jobs, machines, time, order):
                 if np.any(j_avl[m]):
                     for j in range(jobs):
                         if j_avl[m][j] == 1:
-                            if time[j][j_info[j][0]] < t_max:
-                                t_max = time[j][j_info[j][0]]
+                            if timep[j][j_info[j][0]] < t_max:
+                                t_max = timep[j][j_info[j][0]]
                                 j_max = j
                     sol[m][m_pos[m]] = j_max+1
                     m_info[m] = t + t_max
