@@ -3,11 +3,12 @@ from input_data import read_data
 from output_data import write_data
 from algorithm1 import algorithm1
 from algorithm2 import algorithm2
+from algorithm3 import algorithm3
 from time import time
 
 wb0 = Workbook()
 wb1 = Workbook()
-# wb2 = Workbook()
+wb2 = Workbook()
 
 for instance in range(1,17):
     n,m,timep,order = read_data(instance)
@@ -25,6 +26,13 @@ for instance in range(1,17):
     t = t2 - t1
     write_data(wb1, instance, sol, Z, t)
 
+    k = 2 # GRASP
+    t1 = time()
+    sol,Z = algorithm3(n,m,timep,order,k)
+    t2 = time()
+    t = t2 - t1
+    write_data(wb2, instance, sol, Z, t)
+
 wb0.save("JSSP_Daniela_Nino_constructivo.xls")
 wb1.save("JSSP_Daniela_Nino_ruido.xls")
-# wb2.save("JSSP_Daniela_Nino_3.xls")
+wb2.save("JSSP_Daniela_Nino_grasp.xls")
