@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def algorithm2(jobs, machines, timep, order, r):
+def noise(jobs, machines, timep, order, r):
     j_info = np.zeros((jobs,4), dtype=int)
     m_info = np.zeros(machines, dtype=int)
     m_avl = np.zeros(machines, dtype=int)

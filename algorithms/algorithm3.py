@@ -2,7 +2,7 @@ import numpy as np
 import random
 
 
-def algorithm3(jobs, machines, timep, order,k):
+def grasp(jobs, machines, timep, order,k):
     j_info = np.zeros((jobs,4), dtype=int)
     m_info = np.zeros(machines, dtype=int)
     m_avl = np.zeros(machines, dtype=int)
