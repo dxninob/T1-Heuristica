@@ -55,17 +55,10 @@ def time_Z(sol, timep, order, jobs, machines):
                 j = job - 1
                 machine = order[j][next_machine[j]]
                 if machine == m+1:
-                    # print("t =", timep[j][next_machine[j]])
-                    # print("time_jobs[j] =", time_jobs[j])
-                    # print("time_machines[m] =", time_machines[m])
-                    time_job_temp = time_jobs[j]
                     time_jobs[j] = max(time_jobs[j], time_machines[m]) + timep[j][next_machine[j]]
-                    time_machines[m] = max(time_machines[m], time_job_temp) + timep[j][next_machine[j]]
-
+                    time_machines[m] = time_jobs[j]
                     next_job[m] += 1
                     next_machine[j] += 1
-                    
-                    # print("job =",j, " --- machine =",m, " ----- time_job =",  time_jobs[j])
         
         for j in range(jobs):
             if next_machine[j] < machines:
