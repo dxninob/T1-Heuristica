@@ -17,6 +17,8 @@ def IRFI(sol, Z, timep, order, jobs, machines):
                             sol = sol_neighbor
                             Z = Z_neighbor
                             break
+                    else:
+                        break
                 if not stop:
                     break
             if not stop:
