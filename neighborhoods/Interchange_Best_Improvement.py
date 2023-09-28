@@ -19,7 +19,7 @@ def IBI(sol, Z, timep, order, jobs, machines):
                             sol_neighbor = sol_neighbor_temp # Es necesario hacer la copia?
                             Z_neighbor = Z_neighbor_temp
         if not stop:
-            sol = np.copy(sol_neighbor) # Es necesario hacer la copia?
+            sol = sol_neighbor # Es necesario hacer la copia?
             Z = Z_neighbor
     return sol, Z
 

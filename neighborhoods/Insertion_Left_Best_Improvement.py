@@ -21,7 +21,7 @@ def ILBI(sol, Z, timep, order, jobs, machines):
                     else:
                         break
         if not stop:
-            sol = np.copy(sol_neighbor) # Es necesario hacer la copia?
+            sol = sol_neighbor # Es necesario hacer la copia?
             Z = Z_neighbor
     return sol, Z
 
