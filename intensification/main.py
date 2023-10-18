@@ -5,10 +5,10 @@ from input_data import read_data
 from output_data import write_data
 from algorithm1 import constructive
 from time import time
-from Insertion_Left_Best_Improvement import ILBI
-from Insertion_Left_First_Improvement import ILFI
-from Insertion_Right_Best_Improvement import IRBI
-from Insertion_Right_First_Improvement import IRFI
+from Insertion_Backward_Best_Improvement import IBBI
+from Insertion_Backward_First_Improvement import IBFI
+from Insertion_Backward_Best_Improvement import IFBI
+from Insertion_Backward_First_Improvement import IFFI
 from Interchange_Best_Improvement import IBI
 from Interchange_First_Improvement import IFI
 
@@ -32,8 +32,8 @@ for instance in range(1,6):
     sheetwbt.write(0, instance, t)
 
     t1 = time()
-    new_sol, new_Z = ILBI(sol, Z, timep, order, n, m)
-    print("ILBI:", new_Z)
+    new_sol, new_Z = IBBI(sol, Z, timep, order, n, m)
+    print("IBBI:", new_Z)
     t2 = time()
     t = t2 - t1
     write_data(wb[1], instance, new_sol, new_Z, t)
@@ -41,8 +41,8 @@ for instance in range(1,6):
     sheetwbt.write(1, instance, t)
 
     t1 = time()
-    new_sol, new_Z = ILFI(sol, Z, timep, order, n, m)
-    print("ILFI:", new_Z)
+    new_sol, new_Z = IBFI(sol, Z, timep, order, n, m)
+    print("IBFI:", new_Z)
     t2 = time()
     t = t2 - t1
     write_data(wb[2], instance, new_sol, new_Z, t)
@@ -50,8 +50,8 @@ for instance in range(1,6):
     sheetwbt.write(2, instance, t)
 
     t1 = time()
-    new_sol, new_Z = IRBI(sol, Z, timep, order, n, m)
-    print("IRBI:", new_Z)
+    new_sol, new_Z = IFBI(sol, Z, timep, order, n, m)
+    print("IFBI:", new_Z)
     t2 = time()
     t = t2 - t1
     write_data(wb[3], instance, new_sol, new_Z, t)
@@ -59,8 +59,8 @@ for instance in range(1,6):
     sheetwbt.write(3, instance, t)
 
     t1 = time()
-    new_sol, new_Z = IRFI(sol, Z, timep, order, n, m)
-    print("IRFI:", new_Z)
+    new_sol, new_Z = IFFI(sol, Z, timep, order, n, m)
+    print("IFFI:", new_Z)
     t2 = time()
     t = t2 - t1
     write_data(wb[4], instance, new_sol, new_Z, t)
@@ -86,10 +86,10 @@ for instance in range(1,6):
     sheetwbt.write(6, instance, t)
 
 wb[0].save("JSSP_Daniela_Nino_constructive.xls")
-wb[1].save("JSSP_Daniela_Nino_ILBI.xls")
-wb[2].save("JSSP_Daniela_Nino_ILFI.xls")
-wb[3].save("JSSP_Daniela_Nino_IRBI.xls")
-wb[4].save("JSSP_Daniela_Nino_IRFI.xls")
+wb[1].save("JSSP_Daniela_Nino_IBBI.xls")
+wb[2].save("JSSP_Daniela_Nino_IBFI.xls")
+wb[3].save("JSSP_Daniela_Nino_IFBI.xls")
+wb[4].save("JSSP_Daniela_Nino_IFFI.xls")
 wb[5].save("JSSP_Daniela_Nino_IBI.xls")
 wb[6].save("JSSP_Daniela_Nino_IFI.xls")
 wbr.save("Results.xls")
