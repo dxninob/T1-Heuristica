@@ -7,8 +7,8 @@ from algorithm1 import constructive
 from time import time
 from Insertion_Backward_Best_Improvement import IBBI
 from Insertion_Backward_First_Improvement import IBFI
-from Insertion_Backward_Best_Improvement import IFBI
-from Insertion_Backward_First_Improvement import IFFI
+from Insertion_Forward_Best_Improvement import IFBI
+from Insertion_Forward_First_Improvement import IFFI
 from Interchange_Best_Improvement import IBI
 from Interchange_First_Improvement import IFI
 
