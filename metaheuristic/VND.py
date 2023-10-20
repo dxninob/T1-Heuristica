@@ -1,7 +1,6 @@
 import numpy as np
 import sys
 sys.path.append('./intensification')
-from methods import feasible, time_Z
 # from Insertion_Backward_Best_Improvement import IBBI
 from Insertion_Backward_First_Improvement import IBFI
 # from Insertion_Forward_Best_Improvement import IFBI
