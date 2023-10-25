@@ -13,7 +13,7 @@ def Simulated_Annealing(sol, Z, T0, Tf, L, p, timep, order, jobs, machines, time
     Z1 = Z
     while current_time < time_limit:
         T = T0
-        while T > Tf:
+        while T > Tf and current_time < time_limit:
             l = 0
             while l < L and current_time < time_limit:
                 l += 1
@@ -29,7 +29,5 @@ def Simulated_Annealing(sol, Z, T0, Tf, L, p, timep, order, jobs, machines, time
                 t2 = time()
                 current_time = t2 - t1
             T = p*T
-            if current_time >= time_limit:
-                break
 
     return sol1, Z1
