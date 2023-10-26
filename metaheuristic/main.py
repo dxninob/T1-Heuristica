@@ -5,6 +5,7 @@ from input_data import read_data
 from output_data import write_data
 from algorithm1 import constructive
 from VND import VND
+from Mixed import Mixed
 from time import time
 import numpy as np
 
@@ -16,7 +17,7 @@ sheetwbr = wbr.add_sheet(f'Results')
 wbt = Workbook()
 sheetwbt = wbt.add_sheet(f'Time')
 
-for instance in range(1,6):
+for instance in range(1,17):
     print(f"Instance{instance}")
     n,m,timep,order = read_data(instance)
 
@@ -32,6 +33,16 @@ for instance in range(1,6):
     sheetwbr.write(1, instance, int(new_Z))
     sheetwbt.write(1, instance, t)
 
-wbvnd.save("JSSP_Daniela_Nino_VND.xls")
+    # nsol = 3; T0 = 10; Tf = 1; L = 10; p = 0.7; nit = 10; nc = 3; r = 5
+    # t1 = time()
+    # new_sol, new_Z = Mixed(nsol, T0, Tf, L, p, nit, nc, r, n, m, timep, order, time_limit[f'JSSP{instance}'])
+    # t2 = time()
+    # t = t2 - t1
+    # print("Mixed:", new_Z)
+    # write_data(wbvnd, instance, new_sol, new_Z, t)
+    # sheetwbr.write(1, instance, int(new_Z))
+    # sheetwbt.write(1, instance, t)
+
+wbvnd.save("JSSP_Daniela_Nino.xls")
 wbr.save("Results.xls")
 wbt.save("Time.xls")
